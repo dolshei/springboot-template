@@ -1,7 +1,9 @@
 package com.template.springboot.controller;
 
 import com.template.springboot.model.SalaryModel;
+import com.template.springboot.service.SalaryService;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,10 +14,13 @@ import java.util.List;
 
 @Controller
 public class HomeController {
+
+
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView goHome(HttpServletRequest request) {
 
         ModelAndView mav = new ModelAndView();
+
 
         // salary 객체 리스트 변수
         List<SalaryModel> salaryList = new ArrayList<SalaryModel>();
@@ -34,7 +39,7 @@ public class HomeController {
         // 두 번째 데이터
         salaryModel = SalaryModel.builder()
                 .id(2)
-//               .name("BBB")
+                .name("BBB")
                 .email("BBB@template.com")
                 .build();
         salaryList.add(salaryModel);
