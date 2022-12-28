@@ -24,7 +24,7 @@ public class Home2Controller {
         List<SalaryModel> salaryList = salaryService.getSalary();
 
         mav.addObject("salaryList", salaryList);
-        mav.setViewName("content/home.html");
+        mav.setViewName("content/home");
 
         return mav;
     }
