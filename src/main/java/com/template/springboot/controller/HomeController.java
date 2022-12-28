@@ -1,7 +1,9 @@
 package com.template.springboot.controller;
 
 import com.template.springboot.model.SalaryModel;
+import com.template.springboot.service.SalaryService;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,6 +20,7 @@ public class HomeController {
     public ModelAndView goHome(HttpServletRequest request) {
 
         ModelAndView mav = new ModelAndView();
+
 
         // salary 객체 리스트 변수
         List<SalaryModel> salaryList = new ArrayList<SalaryModel>();
