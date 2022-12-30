@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
@@ -37,12 +38,14 @@ public class ExceptionHadlingController implements ErrorController {
             // 로그로 상태값을 기록 및 출력
             logger.info("httpStatus : " + statusCode);
 
+            SimpleDateFormat sDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
+
             // 404 error
             if (statusCode == HttpStatus.NOT_FOUND.value()) {
                 // 에러 페이지에 표시할 정보
                 model.addAttribute("code", status.toString());
                 model.addAttribute("msg", httpStatus.getReasonPhrase());
-                model.addAttribute("timestamp", new Date());
+                model.addAttribute("timestamp", sDate.format(new Date()));
                 return ERROR_404_PAGE_PATH;
             }
 
