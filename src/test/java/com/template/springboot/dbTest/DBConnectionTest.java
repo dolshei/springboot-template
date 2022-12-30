@@ -1,5 +1,6 @@
 package com.template.springboot.dbTest;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
@@ -11,11 +12,12 @@ public class DBConnectionTest {
     private static final String DRIVER = "org.mariadb.jdbc.Driver";
 
     // DB 경로
-    private static final String URL = "jdbc:mariadb://115.85.180.233:3306/springbootdb?useUnicode=yes&characterEncoding=UTF-8&serverTimezone=Asia/Seoul";
-    private static final String USER = "sa";
-    private static final String PASSWORD = "6h5g4f#D@S!A";
+    private static final String URL = "jdbc:mariadb://serverIP:port/springbootdb?useUnicode=yes&characterEncoding=UTF-8&serverTimezone=Asia/Seoul";
+    private static final String USER = "dbAccount";
+    private static final String PASSWORD = "dbAccountPassword";
 
     @Test
+    @DisplayName("DB 연결확인")
     public void testConnection() throws Exception {
         // DBMS 에게 DB 연결 드라이버의 위치를 알려주기 위한 메서드
         Class.forName(DRIVER);
