@@ -26,19 +26,19 @@ public class ParameterAop {
         // Method 이름 출력
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         Method method = methodSignature.getMethod();
-        System.out.println(method.getName());
+        System.out.println("mehtod name : " + method.getName());
 
         Object[] args = joinPoint.getArgs();
         for (Object obj : args) {
             System.out.println("type : " + obj.getClass().getSimpleName());
-            System.out.println("type : "+ obj);
+            System.out.println("type value : "+ obj);
         }
     }
 
     // returning 에는 내가 받고 싶은 객체의 이름을 넣어준다. (이는 method 의 parameter 명과 동일해야 한다.)
     @AfterReturning(value = "cut()", returning = "returnObj")
     public void afterReturn(JoinPoint joinPoint, Object returnObj) {
-        System.out.println("Return obj");
-        System.out.println(returnObj);
+        System.out.println("joinPoint : "+ joinPoint);
+        System.out.println("return obj : " + returnObj);
     }
 }

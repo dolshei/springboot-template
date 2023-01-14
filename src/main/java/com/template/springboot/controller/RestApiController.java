@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api")
 public class RestApiController {
     @GetMapping("/get/{id}")
-    public void get(@PathVariable Long id, @RequestBody String name) {
+    public void get(@PathVariable Long id, @RequestParam String name) {
+        System.out.println("--------------------------------------");
         System.out.println("Get method");
         System.out.println("Get method : " + id);
         System.out.println("Get method : " + name);
@@ -15,6 +16,7 @@ public class RestApiController {
 
     @PostMapping("/post2")
     public void post(@RequestBody User user) {
+        System.out.println("--------------------------------------");
         System.out.println("Post method : "+ user);
     }
 }
